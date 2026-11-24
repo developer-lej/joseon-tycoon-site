@@ -136,9 +136,13 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:72px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
 .stats>div{padding:30px 24px;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line)}
 .stats>div:first-child{padding-left:0}.stats>div:last-child{border-right:0}
-.stats b{font-family:'Gowun Batang',serif;font-size:clamp(30px,3.6vw,46px);line-height:1.2}
+.stats b{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(19px,1.7vw,23px);line-height:1.35;margin-top:6px}
+.pic-s{height:78px;display:flex;align-items:flex-end}.pic-s img{height:74px;width:auto;filter:drop-shadow(0 6px 6px rgba(42,35,27,.25));transition:transform .5s var(--ease)}
+.stats>div:hover .pic-s img{transform:translateY(-6px)}
+.pic-s.q{position:relative}.pic-s.q img{height:84px;filter:drop-shadow(0 0 1px rgba(224,179,58,.8)) drop-shadow(0 6px 8px rgba(42,35,27,.3))}
+.pic-s.q::after{content:"?";position:absolute;left:62px;top:22px;font-family:'Gowun Batang',serif;font-weight:700;font-size:34px;color:#E0B33A;text-shadow:0 0 12px rgba(224,179,58,.7);animation:qpulse 2.4s ease-in-out infinite}
 .stats b.long{font-size:clamp(22px,2.5vw,32px);white-space:nowrap;line-height:1.75}
-.stats span{font-size:15px;color:var(--muted)}
+.stats span{font-size:15.5px;color:var(--muted);line-height:1.6}
 @media (max-width:640px){.stats{grid-template-columns:1fr}.stats>div{border-right:0;border-bottom:1px solid var(--line);padding-left:0}}
 
 /* ── 특징 ── */
@@ -370,9 +374,9 @@ html,body{overflow-x:clip}
 <p>조선 시대 고을을 일구는 마을 건설 · 경영 시뮬레이션. 길을 내고 백성을 불러 일터를 세우면, 고을이 눈앞에서 살아 움직여요.</p>
 </div>
 <div class="stats stg">
-<div><b data-count="140" data-suffix="+">140+</b><span>가지 건물</span></div>
-<div><b data-count="40" data-suffix="+">40+</b><span>가지 물건이 오가는 살림</span></div>
-<div><b class="long">숭례문 → 근정전</b><span>손수 쌓아 올리는 상징 건축</span></div>
+<div><i class="pic-s"><img src="assets/b/00.webp" alt="" width="90" height="74"></i><b>초가 한 채에서 시작해요</b><span>길을 내고 백성을 부르면, 빈 들판이 고을로 자라요.</span></div>
+<div><i class="pic-s"><img src="assets/people.webp" alt="" height="70"></i><b>누구에게나 하루가 있어요</b><span>일터로 가는 백성, 서당에 가는 양반, 구경 온 나그네까지.</span></div>
+<div><i class="pic-s q"><img src="assets/b/q.webp" alt="" height="84"></i><b>고을마다 숨은 상징 건축</b><span>장이 넘어갈 때마다 새 고을과 새 이야기가 열려요.</span></div>
 </div>
 </div>
 </section>
