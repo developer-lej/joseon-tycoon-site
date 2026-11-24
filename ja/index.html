@@ -167,15 +167,16 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 @media (max-width:640px){.stats{grid-template-columns:1fr}.stats>div{border-right:0;border-bottom:1px solid var(--line);padding-left:0}}
 
 /* ── 특징 ── */
-.features{padding:60px 0 40px;display:flex;flex-direction:column;gap:120px}
+.features{padding-top:60px;padding-bottom:40px;display:flex;flex-direction:column;gap:120px}
 .feat{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
 .feat.rev{flex-direction:row-reverse}
 .feat .pic{flex:3 1 480px;min-width:0;position:relative}
-.feat .pic img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;box-shadow:0 20px 50px rgba(42,35,27,.18)}
+.feat .pic img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;box-shadow:0 20px 50px rgba(42,35,27,.18)}
 .feat .pic::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--line);border-radius:6px;z-index:-1}
 .feat.rev .pic::before{inset:14px 14px -14px -14px}
 .feat .txt{flex:2 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px}
-.num{font-family:'Gowun Batang',serif;font-size:56px;line-height:1;color:var(--seal);opacity:.9}
+.num{display:flex;align-items:center;gap:14px;font-family:'Gowun Batang',serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--seal)}
+.num::after{content:"";width:48px;height:1px;background:currentColor;opacity:.6}
 .feat h3{margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,2.6vw,32px);line-height:1.35}
 .feat p{margin:0;font-size:18px;line-height:1.8;color:var(--ink2)}
 
@@ -185,7 +186,7 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 @media (max-width:720px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .shot{padding:0;border:0;background:none;cursor:zoom-in;display:block;width:100%;border-radius:6px;overflow:hidden;position:relative}
-.shot img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
+.shot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
 .shot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 0 var(--seal);transition:box-shadow .35s var(--ease);border-radius:6px}
 .shot:hover img{transform:scale(1.06);filter:saturate(1.08)}
 .shot:hover::after{box-shadow:inset 0 0 0 3px var(--seal)}
@@ -276,8 +277,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 .tilt:hover .glare{opacity:1}
 .feat .pic{border-radius:6px}
 /* 큰 한자 번호 빛 */
-.num{background:linear-gradient(180deg,#C0392B,#E0B33A);-webkit-background-clip:text;background-clip:text;color:transparent;
-  font-size:72px;filter:drop-shadow(0 4px 10px rgba(168,56,42,.25))}
+
 /* 낙관 도장 */
 .cta h2{position:relative}
 .stamp{position:absolute;right:-96px;top:-34px;width:84px;height:84px;border:3px solid var(--cream);border-radius:10px;color:var(--cream);
@@ -319,10 +319,13 @@ html,body{overflow-x:clip}
   .play span{width:80px;height:80px}
   .about{padding:84px 0 40px}.about-row{gap:24px}.about-row p{font-size:17px}
   .stats{margin-top:44px}
+  .stats>div{display:grid;grid-template-columns:76px 1fr;column-gap:14px;row-gap:2px;align-items:center;padding:20px 0}
+  .stats .pic-s{grid-row:1/3;height:auto;justify-content:center}.stats .pic-s img{height:58px;max-width:76px;object-fit:contain}.stats .pic-s.q img{height:58px}.pic-s.q::after{left:28px;top:6px;font-size:26px}
+  .stats b{margin-top:0;font-size:18px}.stats span{font-size:14.5px}
   .marq{--k:.66}
   .features{gap:64px;padding-top:44px}
   .feat{gap:22px}.feat .pic::before{display:none}
-  .feat p{font-size:16px}.num{font-size:56px}
+  .feat p{font-size:16px}
   .shots{padding:80px 0 72px}.gallery{gap:8px}
   .lb-prev,.lb-next{top:auto;bottom:16px;transform:none}.lb-prev{left:16px}.lb-next{right:16px}
   .cta{padding:84px 0 110px}.cta h2{padding-right:76px}
@@ -390,6 +393,7 @@ html,body{overflow-x:clip}
 <div class="giwa" aria-hidden="true"></div>
 <canvas id="sky" aria-hidden="true"></canvas>
 <div class="wrap">
+<p class="eyebrow rv">トレーラー</p>
 <h2 class="rv"><span class="stroke">夕暮れ、どの煙突からも</span><br>煙が立ちのぼれば</h2>
 <div class="player rv">
 <video id="vid" preload="metadata" playsinline muted loop src="../assets/trailer.mp4"></video>
@@ -404,7 +408,7 @@ html,body{overflow-x:clip}
 <div class="about-row rv">
 <div style="flex:1 1 360px">
 <p class="eyebrow">ゲーム紹介</p>
-<h2>一軒の藁葺き屋根から、<br><span class="stroke">八道一の町へ</span></h2>
+<h2>自らの手で築く<br><span class="stroke">自分だけの朝鮮の町</span></h2>
 </div>
 <p>朝鮮時代を舞台にした村づくり・経営シミュレーション。道を敷き、民を呼び、仕事場を建てれば、町が目の前で生き生きと動き出します。</p>
 </div>
@@ -423,20 +427,21 @@ html,body{overflow-x:clip}
 <section class="wrap features">
 <div class="feat">
 <div class="pic"><img class="ink" src="../assets/s/shot3-960.webp" srcset="../assets/s/shot3-960.webp 960w, ../assets/s/shot3-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="仕事場ごとに職人が木を挽き、荷を積む様子" decoding="async"></div>
-<div class="txt stg"><span class="num">一</span><h3>説明いらずの暮らし</h3><p>伐る、運ぶ、作る。すべての工程が画面の上でそのまま見えます。</p></div>
+<div class="txt stg"><span class="num">01</span><h3>説明いらずの暮らし</h3><p>伐る、運ぶ、作る。すべての工程が画面の上でそのまま見えます。</p></div>
 </div>
 <div class="feat rev">
 <div class="pic"><img class="ink" src="../assets/s/shot2-960.webp" srcset="../assets/s/shot2-960.webp 960w, ../assets/s/shot2-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="製錬所の画面と生産の流れがつながった町" decoding="async"></div>
-<div class="txt stg"><span class="num">二</span><h3>職人の手から品が生まれ</h3><p>生産の流れをつなぎ、民と両班の家を五段階まで育てます。</p></div>
+<div class="txt stg"><span class="num">02</span><h3>職人の手から品が生まれ</h3><p>生産の流れをつなぎ、民と両班の家を五段階まで育てます。</p></div>
 </div>
 <div class="feat">
 <div class="pic"><img class="ink" src="../assets/s/shot7-960.webp" srcset="../assets/s/shot7-960.webp 960w, ../assets/s/shot7-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="厳冬の雪に覆われた川辺の町" decoding="async"></div>
-<div class="txt stg"><span class="num">三</span><h3>火事、盗賊、倭寇、そして厳冬</h3><p>王命をこなし、災いを乗り越えて町を守ります。</p></div>
+<div class="txt stg"><span class="num">03</span><h3>火事、盗賊、倭寇、そして厳冬</h3><p>王命をこなし、災いを乗り越えて町を守ります。</p></div>
 </div>
 </section>
 
 <section id="shots" class="shots">
 <div class="wrap">
+<p class="eyebrow rv">スクリーンショット</p>
 <h2 class="rv"><span class="stroke">町を見て回る</span></h2>
 <div class="gallery stg">
 <button type="button" class="shot" aria-label="拡大表示：瓦屋根の家と客舎が並ぶ雪の町"><img src="../assets/s/shot9-960.webp" data-full="../assets/s/shot9-1600.webp" width="960" height="540" alt="瓦屋根の家と客舎が並ぶ雪の町" loading="lazy" decoding="async"></button>
@@ -477,7 +482,7 @@ html,body{overflow-x:clip}
 
 <footer class="wrap">
 <span>© 2026 Bamtee · 朝鮮タイクーン (Joseon Tycoon)</span>
-<span>[문의 이메일]</span>
+
 </footer>
 
 <script>

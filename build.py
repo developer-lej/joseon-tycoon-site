@@ -32,6 +32,8 @@ T = {
  'Steam 찜하기': ('Wishlist', '加入愿望单', 'ウィッシュリスト'),
  'Steam 출시 예정': ('Coming soon to Steam', '即将登陆 Steam', 'Steamで近日発売'),
  'Steam 출시 예정 · 한국어 · English · 中文 · 日本語': ('Coming soon to Steam · 한국어 · English · 中文 · 日本語', '即将登陆 Steam · 한국어 · English · 中文 · 日本語', 'Steamで近日発売 · 한국어 · English · 中文 · 日本語'),
+ '손수 일구는': ('Build it by hand —', '亲手打造', '自らの手で築く'),
+ '나만의 조선 고을': ('your own Joseon town', '属于你的朝鲜城镇', '自分だけの朝鮮の町'),
  '조선시대': ('JoseonEra', '朝鲜时代', '朝鮮時代'),
  '시티빌더': ('CityBuilder', '城市建造', '街づくり'),
  '픽셀아트': ('PixelArt', '像素风', 'ドット絵'),
