@@ -78,6 +78,20 @@ nav .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:8px}
 .logo{width:min(600px,100%);height:auto;
   clip-path:inset(0 100% 0 0);animation:brush 1.6s .35s var(--ease) forwards;filter:drop-shadow(0 2px 0 rgba(255,250,240,.6))}
 @keyframes brush{to{clip-path:inset(0 0 0 0)}}
+.lang{position:relative;margin-right:4px}
+.lang summary{list-style:none;display:flex;align-items:center;gap:6px;min-height:44px;padding:0 10px;border-radius:6px;cursor:pointer;font-size:15px;color:var(--ink)}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary:hover{background:rgba(42,35,27,.07)}
+.lang-m{position:absolute;right:0;top:calc(100% + 6px);min-width:150px;background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 34px rgba(42,35,27,.18);padding:6px;display:flex;flex-direction:column;z-index:60}
+.lang-m a{padding:10px 12px;border-radius:5px;font-size:15px;color:var(--ink);text-decoration:none}
+.lang-m a:hover{background:rgba(168,56,42,.08)}
+.lang-m a[aria-current]{color:var(--seal);font-weight:700}
+.logo-sub{margin:14px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(17px,1.6vw,21px);color:var(--ink);letter-spacing:.02em}
+.logo-sub:empty{display:none}
+:lang(ja) body{font-family:'IBM Plex Sans KR','Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif}
+:lang(zh) body{font-family:'IBM Plex Sans KR','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}
+:lang(ja) h1,:lang(ja) h2,:lang(ja) h3,:lang(ja) .stats b,:lang(ja) .logo-sub{font-family:'Noto Serif JP',serif}
+:lang(zh) h1,:lang(zh) h2,:lang(zh) h3,:lang(zh) .stats b,:lang(zh) .logo-sub{font-family:'Noto Serif SC',serif}
 .tags{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:26px 0 0;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:.02em}
 .tags b{font-weight:700;font-size:14px;color:var(--cream);background:var(--seal);padding:5px 11px;border-radius:3px;letter-spacing:.04em}
 .tags span{position:relative}
@@ -285,6 +299,7 @@ html,body{overflow-x:clip}
   .hero{align-items:flex-start}
   .hero .wrap{padding-top:110px}
   .hero-img{background-position:62% 42%}
+  .lang summary span{display:none}.lang summary{padding:0 8px}
   .tags{font-size:15px;gap:8px 16px;margin-top:20px}.tags span+span::before{display:none}.tags b{flex-basis:100%;max-width:max-content}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{justify-content:center}
@@ -318,6 +333,14 @@ html,body{overflow-x:clip}
   #petals{display:none}
 }
 </style>
+<link rel="alternate" hreflang="ko" href="https://joseontycoon.com/">
+<link rel="alternate" hreflang="en" href="https://joseontycoon.com/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://joseontycoon.com/zh/">
+<link rel="alternate" hreflang="ja" href="https://joseontycoon.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://joseontycoon.com/">
+<link rel="canonical" href="https://joseontycoon.com/">
+
+<script>(function(){try{if(localStorage.getItem('jt-lang')||/bot|crawl|spider|slurp/i.test(navigator.userAgent))return;var l=(navigator.language||'').toLowerCase();if(!l||l.indexOf('ko')===0)return;var t=l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':'en';location.replace(t+'/'+location.hash);}catch(e){}})();</script>
 </head>
 <body>
 <div id="prog" aria-hidden="true"></div>
@@ -329,6 +352,7 @@ html,body{overflow-x:clip}
 <a class="t" href="#trailer">트레일러</a>
 <a class="t" href="#about">게임 소개</a>
 <a class="t" href="#shots">스크린샷</a>
+<details class="lang"><summary aria-label="Language"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5S9.4 5.1 12 2.5z"/></svg><span>한국어</span></summary><div class="lang-m"><a href="./" lang="ko" data-l="ko" aria-current="page">한국어</a><a href="en/" lang="en" data-l="en">English</a><a href="zh/" lang="zh" data-l="zh">简体中文</a><a href="ja/" lang="ja" data-l="ja">日本語</a></div></details>
 <a class="i" href="https://www.youtube.com/@joseontycoon" aria-label="유튜브"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9L15.2 12z"/></svg></a>
 <a class="i" href="https://discord.gg/mkxcfEFjTH" aria-label="디스코드"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg></a>
 <a class="btn btn-seal" href="https://store.steampowered.com/app/5386760">Steam 찜하기</a>
@@ -342,7 +366,8 @@ html,body{overflow-x:clip}
 <canvas id="petals" aria-hidden="true"></canvas>
 <div class="wrap">
 <span class="logo-wrap"><img class="logo" src="assets/logo.png" alt="조선 타이쿤 · 초가 한 채에서, 팔도 제일의 고을로"></span>
-<p class="tags rise d1"><b>Steam 출시 예정</b><span>조선 시대 마을 경영 · 시티빌더</span><span>1인 플레이</span><span>PC · 한국어</span></p>
+<p class="logo-sub"></p>
+<p class="tags rise d1"><b>Steam 출시 예정</b><span>조선 시대 시티빌더</span><span>한국어 · English · 中文 · 日本語</span></p>
 <div class="hero-cta rise d1">
 <a class="btn btn-seal" href="https://store.steampowered.com/app/5386760"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg>Steam에서 찜하기</a>
 <a class="btn btn-ghost" href="#trailer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>트레일러 보기</a>
@@ -596,6 +621,11 @@ new IntersectionObserver(function(e){vis=e[0].isIntersecting;}).observe(M);
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(setup,250);});
 setup();requestAnimationFrame(loop);
 })();
+
+/* 말 고르기 */
+var lg=document.querySelector('.lang');
+if(lg){lg.querySelectorAll('.lang-m a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('jt-lang',a.dataset.l);}catch(e){}});});
+  document.addEventListener('click',function(e){if(lg.open&&!lg.contains(e.target))lg.open=false;});}
 })();
 </script>
 </body>
