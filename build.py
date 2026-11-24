@@ -34,6 +34,39 @@ T = {
  'Steam 출시 예정 · 한국어 · English · 中文 · 日本語': ('Coming soon to Steam · 한국어 · English · 中文 · 日本語', '即将登陆 Steam · 한국어 · English · 中文 · 日本語', 'Steamで近日発売 · 한국어 · English · 中文 · 日本語'),
  '손수 일구는': ('Build it by hand —', '亲手打造', '自らの手で築く'),
  '나만의 조선 고을': ('your own Joseon town', '属于你的朝鲜城镇', '自分だけの朝鮮の町'),
+ '프레스킷': ('Press Kit', '媒体资料', 'プレスキット'),
+ '기사, 영상, 방송에 자유롭게 쓰셔도 돼요.': ('Free to use in articles, videos and streams.', '可自由用于报道、视频和直播。', '記事・動画・配信にご自由にお使いください。'),
+ '전체 내려받기 · ZIP 15MB': ('Download all · ZIP 15MB', '全部下载 · ZIP 15MB', 'まとめてダウンロード · ZIP 15MB'),
+ '게임 정보': ('Fact sheet', '游戏信息', 'ゲーム情報'),
+ '게임': ('Game', '游戏', 'ゲーム'),
+ '조선 타이쿤 (Joseon Tycoon)': ('Joseon Tycoon (조선 타이쿤)', '朝鲜大亨 (Joseon Tycoon)', '朝鮮タイクーン (Joseon Tycoon)'),
+ '개발사': ('Developer', '开发商', '開発'),
+ '장르': ('Genre', '类型', 'ジャンル'),
+ '조선 시대 시티빌더 · 경영 시뮬레이션': ('Joseon-era city builder · management sim', '朝鲜时代城市建造 · 经营模拟', '朝鮮時代の街づくり · 経営シミュレーション'),
+ '플랫폼': ('Platform', '平台', 'プラットフォーム'),
+ '지원 언어': ('Languages', '支持语言', '対応言語'),
+ '출시일': ('Release date', '发售日期', '発売日'),
+ '가격': ('Price', '价格', '価格'),
+ '추후 공개': ('TBA', '待公布', '近日公開'),
+ '소개': ('About', '简介', '紹介'),
+ '초가 한 채에서, 팔도 제일의 고을로.': ('From a single thatched hut to the finest town in the land.', '从一间茅草屋，到八道第一的城镇。', '一軒の藁葺き屋根から、八道一の町へ。'),
+ '조선 시대 고을을 일구는 마을 건설 · 경영 시뮬레이션. 길을 내고 백성을 불러 일터를 세우면, 고을이 눈앞에서 살아 움직여요.': ('A village-building and management sim set in Joseon-era Korea. Lay roads, invite settlers and raise workplaces — and watch your town come alive before your eyes.', '以朝鲜时代为背景的村落建设与经营模拟游戏。修路、招来百姓、建起作坊，城镇就会在你眼前生机勃勃地运转起来。', '朝鮮時代を舞台にした村づくり・経営シミュレーション。道を敷き、民を呼び、仕事場を建てれば、町が目の前で生き生きと動き出します。'),
+ '로고': ('Logos', '标志', 'ロゴ'),
+ '한국어 · PNG': ('Korean · PNG', '韩语 · PNG', '韓国語 · PNG'),
+ '조선 타이쿤 로고 (한국어)': ('Joseon Tycoon logo (Korean)', '朝鲜大亨标志（韩语）', '朝鮮タイクーンのロゴ（韓国語）'),
+ '키 아트 · 아이콘': ('Key art · icon', '主视觉 · 图标', 'キーアート · アイコン'),
+ '키 아트': ('Key art', '主视觉', 'キーアート'),
+ '키 아트 · JPG 1920×1080': ('Key art · JPG 1920×1080', '主视觉 · JPG 1920×1080', 'キーアート · JPG 1920×1080'),
+ '게임 아이콘': ('Game icon', '游戏图标', 'ゲームアイコン'),
+ '아이콘 · PNG 256×256': ('Icon · PNG 256×256', '图标 · PNG 256×256', 'アイコン · PNG 256×256'),
+ '플레이 움짤': ('Gameplay GIFs', '游戏动图', 'プレイGIF'),
+ '플레이 장면 1': ('Gameplay 1', '游戏画面 1', 'プレイ画面 1'),
+ '플레이 장면 2': ('Gameplay 2', '游戏画面 2', 'プレイ画面 2'),
+ '플레이 장면 3': ('Gameplay 3', '游戏画面 3', 'プレイ画面 3'),
+ 'MP4 내려받기 · 14MB': ('Download MP4 · 14MB', '下载 MP4 · 14MB', 'MP4をダウンロード · 14MB'),
+ '연락 · 키 요청': ('Contact · key requests', '联系 · 申请激活码', 'お問い合わせ · キーのご依頼'),
+ '리뷰용 키나 인터뷰는 디스코드로 편하게 연락 주세요.': ('For review keys or interviews, reach us on Discord.', '如需评测激活码或采访，欢迎通过 Discord 联系我们。', 'レビュー用キーや取材のご依頼は、Discordからお気軽にどうぞ。'),
+ '디스코드에서 연락하기': ('Contact us on Discord', '在 Discord 联系我们', 'Discordで連絡する'),
  '조선시대': ('JoseonEra', '朝鲜时代', '朝鮮時代'),
  '시티빌더': ('CityBuilder', '城市建造', '街づくり'),
  '픽셀아트': ('PixelArt', '像素风', 'ドット絵'),
@@ -109,20 +142,40 @@ FONTS = {
 }
 SITE = 'https://joseontycoon.com/'
 
-def build(code):
-    L = LANGS[code]; s = SRC
-    up = '../' if L['dir'] else ''
+PRESS_BODY = open('src/press-body.html', encoding='utf-8').read()
+PRESS_TITLE = {'ko': '프레스킷 · 조선 타이쿤', 'en': 'Press Kit · Joseon Tycoon', 'zh': '媒体资料 · 朝鲜大亨', 'ja': 'プレスキット · 朝鮮タイクーン'}
+SHOT_ALTS = ['길을 따라 늘어선 첫 초가들', '일터마다 일꾼이 나무를 켜고 짐을 쌓는 모습', '제련소 창과 생산 줄이 이어진 고을', '눈 덮인 혹한기의 강가 고을', '강가에 교역소를 연 무역 고을', '눈 쌓인 기와지붕 가까이', '바닷가에 길을 낸 초가 마을', '숲에 둘러싸인 고을 전경', '기와집과 객사가 들어선 눈 내린 고을']
+
+def press_page():
+    s = SRC
+    head = s[:s.index('<body')]
+    hdr = s[s.index('<header id="hdr">'):s.index('</header>') + len('</header>')]
+    for a in ('#trailer', '#about', '#shots'):
+        hdr = hdr.replace('href="' + a + '"', 'href="{{HOME}}' + a + '"')
+    hdr = hdr.replace('href="#top"', 'href="{{HOME}}"')
+    foot = s[s.index('<footer class="wrap">'):s.index('</footer>') + len('</footer>')]
+    shots = ''.join(f'<a class="p-item" href="assets/press/screenshots/screenshot-{i}.jpg" download><span class="p-pic"><img src="assets/s/shot{i}-960.webp" alt="{SHOT_ALTS[i-1]}" loading="lazy"></span><span class="p-cap">{i} · JPG 1920×1080</span></a>\n' for i in range(1, 10))
+    body = PRESS_BODY.replace('{{SHOTS}}', shots)
+    js = ("<script>(function(){var hdr=document.getElementById('hdr');function f(){hdr.classList.toggle('solid',window.scrollY>40);}addEventListener('scroll',f,{passive:true});f();"
+          "var lg=document.querySelector('.lang');if(lg){lg.querySelectorAll('.lang-m a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('jt-lang',a.dataset.l);}catch(e){}});});"
+          "document.addEventListener('click',function(e){if(lg.open&&!lg.contains(e.target))lg.open=false;});}})();</script>")
+    return head + '<body>\n' + hdr + '\n' + body + '\n' + foot + '\n' + js + '\n</body>\n</html>\n'
+
+def build(code, kind='home'):
+    L = LANGS[code]; s = SRC if kind == 'home' else press_page()
+    sub = '' if kind == 'home' else 'press/'
+    up = '../' * ((1 if L['dir'] else 0) + (1 if sub else 0))
     # 머리
     s = s.replace('<html lang="ko">', f'<html lang="{L["html"]}">', 1)
-    s = re.sub(r'<title>.*?</title>', f'<title>{L["title"]}</title>', s, count=1)
+    s = re.sub(r'<title>.*?</title>', f'<title>{L["title"] if kind == "home" else PRESS_TITLE[code]}</title>', s, count=1)
     s = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + L['desc'], s, count=1)
     s = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + L['title'], s, count=1)
     s = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + L['ogdesc'], s, count=1)
-    alt = ''.join(f'<link rel="alternate" hreflang="{LANGS[c]["html"]}" href="{SITE}{LANGS[c]["dir"] + "/" if LANGS[c]["dir"] else ""}">\n' for c in LANGS)
-    alt += f'<link rel="alternate" hreflang="x-default" href="{SITE}">\n<link rel="canonical" href="{SITE}{L["dir"] + "/" if L["dir"] else ""}">\n'
+    alt = ''.join(f'<link rel="alternate" hreflang="{LANGS[c]["html"]}" href="{SITE}{LANGS[c]["dir"] + "/" if LANGS[c]["dir"] else ""}{sub}">\n' for c in LANGS)
+    alt += f'<link rel="alternate" hreflang="x-default" href="{SITE}{sub}">\n<link rel="canonical" href="{SITE}{L["dir"] + "/" if L["dir"] else ""}{sub}">\n'
     s = s.replace('</head>', alt + FONTS.get(code, '') + '\n</head>', 1)
     # 말 바꾸기 (본문, 스크립트 앞까지만)
-    cut = s.index('<script>', s.index('<body'))
+    cut = s.index('<script>', s.index('<body')) if kind == 'home' else s.index('<script>(function(){var hdr', s.index('<body'))
     head, body, tail = s[:s.index('<body')], s[s.index('<body'):cut], s[cut:]
     body = body.replace('{{LANG_LABEL}}', L['label'])
     if code != 'ko':
@@ -137,8 +190,9 @@ def build(code):
             body = body.replace('="' + k, '="' + vs[i])
     body = body.replace('{{LOGO_SUB}}', L['logo_sub'])
     for c in LANGS:
-        href = up + (LANGS[c]['dir'] + '/' if LANGS[c]['dir'] else '')
+        href = up + (LANGS[c]['dir'] + '/' if LANGS[c]['dir'] else '') + sub
         body = body.replace('{{L_' + c + '}}', href or './')
+    body = body.replace('{{PRESS}}', 'press/' if kind == 'home' else './').replace('{{HOME}}', '../' if kind == 'press' else './')
     body = body.replace(f'data-l="{code}"', f'data-l="{code}" aria-current="page"')
     s = head + body + tail
     if code != 'ko':
@@ -148,19 +202,21 @@ def build(code):
     redir = ("<script>(function(){try{if(localStorage.getItem('jt-lang')||/bot|crawl|spider|slurp|facebookexternalhit|preview/i.test(navigator.userAgent))return;"
              "var ls=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']);var l=(ls[0]||'').toLowerCase();if(!l)return;"
              "var t=l.indexOf('ko')===0?'ko':l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':'en';if(t==='" + here + "')return;"
-             "location.replace('" + root + "'+(t==='ko'?'':t+'/')+location.hash);}catch(e){}})();</script>\n")
+             "location.replace('" + root + "'+(t==='ko'?'':t+'/')+'" + sub + "'+location.hash);}catch(e){}})();</script>\n")
     s = s.replace('</head>', redir + '</head>', 1)
     if up:
         s = re.sub(r'(?<![\w./])assets/', up + 'assets/', s)
     # 남은 한글 검사 (한국어 본문 외)
     if code != 'ko':
-        b2 = s[s.index('<body'):s.index('<script>', s.index('<body'))]
+        b2 = s[s.index('<body'):s.index('<script>', s.index('<body'))] if kind == 'home' else s[s.index('<body'):]
         left = [t for t in re.findall(r'>([^<>]*[가-힣][^<>]*)<|="([^"]*[가-힣][^"]*)"', b2)]
         left = [a or b for a, b in left if (a or b).strip() not in ('조선', '타이쿤', '한국어', '[문의 이메일]', '한국어 · English · 中文 · 日本語', '한국어 ', 'Coming soon to Steam · 한국어 · English · 中文 · 日本語', '即将登陆 Steam · 한국어 · English · 中文 · 日本語', 'Steamで近日発売 · 한국어 · English · 中文 · 日本語') and '(조선 타이쿤)' not in (a or b)]
         if left: print(code, '한글 남음:', left)
-    out = (L['dir'] + '/' if L['dir'] else '') + 'index.html'
+    out = (L['dir'] + '/' if L['dir'] else '') + sub + 'index.html'
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)
     open(out, 'w', encoding='utf-8').write(s)
     print('만듦', out)
 
-for c in LANGS: build(c)
+for c in LANGS:
+    build(c)
+    build(c, 'press')

@@ -340,6 +340,40 @@ html,body{overflow-x:clip}
   .mbar .i{flex:none;width:52px;height:52px;border-radius:6px;background:var(--night);color:var(--cream);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(42,35,27,.35)}
 }
 
+/* 프레스킷 */
+.f-press{color:var(--muted)}
+.press{padding-top:96px}
+.p-hero{padding-top:64px;padding-bottom:40px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.p-hero h1{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(40px,5vw,64px);line-height:1.1}
+.p-lead{margin:0;font-size:17px;color:var(--muted)}
+.p-dl{margin-top:10px;display:inline-flex;align-items:center;gap:10px}
+.p-sec{padding-top:56px;padding-bottom:8px;border-top:1px solid var(--line);margin-top:48px}
+.p-sec h2{margin:0 0 24px;font-family:'Gowun Batang',serif;font-size:26px}
+.p-last{padding-bottom:110px}
+.facts{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.facts>div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);font-size:15px}.facts dd{margin:0;font-size:16px;font-weight:600}
+.facts a{color:var(--seal)}
+.copy{max-width:720px}.copy p{margin:0 0 12px;font-size:17px;line-height:1.8}.copy-s{font-family:'Gowun Batang',serif;font-weight:700;font-size:21px!important}
+.p-grid{display:grid;gap:20px}
+.p-logos{grid-template-columns:repeat(4,minmax(0,1fr))}
+.p-art{grid-template-columns:3fr 1fr}
+.p-shots{grid-template-columns:repeat(3,minmax(0,1fr))}
+.p-gifs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.p-item{display:flex;flex-direction:column;gap:10px;color:var(--ink);text-decoration:none}
+.p-pic{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#E9DFCB;border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s}
+.p-pic img{width:100%;height:100%;object-fit:cover}
+.p-pic.chk{background:repeating-conic-gradient(#EFE6D4 0 25%,#F8F2E6 0 50%) 0 0/18px 18px}
+.p-pic.chk img{object-fit:contain;padding:14%;box-sizing:border-box}
+.p-pic.sq{aspect-ratio:auto;height:100%;min-height:120px}
+.p-item:hover .p-pic{transform:translateY(-3px);box-shadow:0 12px 28px rgba(42,35,27,.14)}
+.p-cap{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.p-cap::after{content:"↓";color:var(--seal);font-weight:700}
+.p-trailer{display:flex;flex-direction:column;gap:12px;max-width:900px}
+.p-trailer video{width:100%;aspect-ratio:16/9;border-radius:6px;background:#000}
+.p-link{color:var(--seal);font-weight:600}
+@media (max-width:760px){.press{padding-top:72px}.facts{grid-template-columns:1fr}.facts>div{grid-template-columns:96px minmax(0,1fr)}.p-logos{grid-template-columns:repeat(2,minmax(0,1fr))}.p-art{grid-template-columns:1fr}.p-pic.sq{aspect-ratio:1/1;max-width:160px}.p-shots,.p-gifs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .logo,.ink{clip-path:none}.rv,.stg>*,.rise{opacity:1;transform:none}
@@ -357,6 +391,7 @@ html,body{overflow-x:clip}
 <a class="t" href="#trailer">트레일러</a>
 <a class="t" href="#about">게임 소개</a>
 <a class="t" href="#shots">스크린샷</a>
+<a class="t" href="{{PRESS}}">프레스킷</a>
 <details class="lang"><summary aria-label="Language"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5S9.4 5.1 12 2.5z"/></svg><span>{{LANG_LABEL}}</span></summary><div class="lang-m"><a href="{{L_ko}}" lang="ko" data-l="ko">한국어 <small>Korean</small></a><a href="{{L_en}}" lang="en" data-l="en">English</a><a href="{{L_zh}}" lang="zh" data-l="zh">简体中文 <small>Chinese</small></a><a href="{{L_ja}}" lang="ja" data-l="ja">日本語 <small>Japanese</small></a></div></details>
 <a class="i" href="https://www.youtube.com/@joseontycoon" aria-label="유튜브"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9L15.2 12z"/></svg></a>
 <a class="i" href="https://discord.gg/mkxcfEFjTH" aria-label="디스코드"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg></a>
@@ -474,6 +509,7 @@ html,body{overflow-x:clip}
 
 <footer class="wrap">
 <span>© 2026 Bamtee Studio · 조선 타이쿤 (Joseon Tycoon)</span>
+<a class="f-press" href="{{PRESS}}">프레스킷</a>
 
 </footer>
 
