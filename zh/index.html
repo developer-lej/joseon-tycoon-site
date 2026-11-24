@@ -10,6 +10,8 @@
 <meta property="og:image" content="../assets/shot9.jpg">
 <meta name="theme-color" content="#1E1A15">
 <link rel="icon" href="../assets/icon.png">
+<link rel="preload" as="image" href="../assets/hero.webp" media="(min-width:761px)">
+<link rel="preload" as="image" href="../assets/hero-960.webp" media="(max-width:760px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
@@ -62,7 +64,7 @@ nav .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:8px}
 
 /* ── 첫 화면 ── */
 .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;align-items:center;background:#E9DCC2}
-.hero-img{position:absolute;inset:-4%;background:url(../assets/hero.jpg) center 42%/cover no-repeat;will-change:transform;
+.hero-img{position:absolute;inset:-4%;background:url(../assets/hero.webp) center 42%/cover no-repeat;will-change:transform;
   animation:breathe 26s ease-in-out infinite alternate}
 @keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.09) translate(-1%,-1%)}}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
@@ -133,7 +135,7 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 .trailer h2{font-size:clamp(30px,4vw,44px);margin-bottom:40px}
 .player{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);background:#000}
 .player video{display:block;width:100%;aspect-ratio:16/9}
-.play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:#000 url(../assets/shot1.jpg) center/cover;display:flex;align-items:center;justify-content:center}
+.play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:#000 url(../assets/s/shot1-1600.webp) center/cover;display:flex;align-items:center;justify-content:center}
 .play::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.05),rgba(0,0,0,.45))}
 .play span{position:relative;width:104px;height:104px;border-radius:52px;background:var(--seal);color:var(--cream);display:flex;align-items:center;justify-content:center;
   box-shadow:0 0 0 0 rgba(168,56,42,.6);animation:ring 2.4s ease-out infinite;transition:transform .35s var(--ease)}
@@ -291,6 +293,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 html,body{overflow-x:clip}
 .mbar{display:none}
 @media (max-width:760px){
+  .hero-img{background-image:url(../assets/hero-960.webp)}
   .wrap{padding:0 20px}
   .bar{padding-top:10px;padding-bottom:10px;flex-wrap:nowrap}
   .brand img{width:34px;height:34px}.brand span{font-size:17px}
@@ -414,15 +417,15 @@ html,body{overflow-x:clip}
 
 <section class="wrap features">
 <div class="feat">
-<div class="pic"><img class="ink" src="../assets/shot3.jpg" alt="各处作坊里工人锯木、堆货的景象" loading="lazy"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot3-960.webp" srcset="../assets/s/shot3-960.webp 960w, ../assets/s/shot3-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="各处作坊里工人锯木、堆货的景象" decoding="async"></div>
 <div class="txt stg"><span class="num">一</span><h3>一眼看懂的日常</h3><p>砍伐、搬运、制作——每道工序都在画面上真实呈现。</p></div>
 </div>
 <div class="feat rev">
-<div class="pic"><img class="ink" src="../assets/shot2.jpg" alt="打开冶炼所窗口、生产链相连的城镇" loading="lazy"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot2-960.webp" srcset="../assets/s/shot2-960.webp 960w, ../assets/s/shot2-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="打开冶炼所窗口、生产链相连的城镇" decoding="async"></div>
 <div class="txt stg"><span class="num">二</span><h3>匠人手中造出百物</h3><p>串起生产链，把百姓与两班的住宅升到第五阶。</p></div>
 </div>
 <div class="feat">
-<div class="pic"><img class="ink" src="../assets/shot7.jpg" alt="严冬时节白雪覆盖的河畔城镇" loading="lazy"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot7-960.webp" srcset="../assets/s/shot7-960.webp 960w, ../assets/s/shot7-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="严冬时节白雪覆盖的河畔城镇" decoding="async"></div>
 <div class="txt stg"><span class="num">三</span><h3>火灾、盗贼、倭寇，还有严冬</h3><p>完成王命、战胜灾害，守护你的城镇。</p></div>
 </div>
 </section>
@@ -431,12 +434,12 @@ html,body{overflow-x:clip}
 <div class="wrap">
 <h2 class="rv"><span class="stroke">城镇一览</span></h2>
 <div class="gallery stg">
-<button type="button" class="shot" aria-label="查看大图：瓦房与客舍林立的雪中城镇"><img src="../assets/shot9.jpg" alt="瓦房与客舍林立的雪中城镇" loading="lazy"></button>
-<button type="button" class="shot" aria-label="查看大图：在河边开设交易所的贸易城镇"><img src="../assets/shot6.jpg" alt="在河边开设交易所的贸易城镇" loading="lazy"></button>
-<button type="button" class="shot" aria-label="查看大图：积雪瓦顶特写"><img src="../assets/shot8.jpg" alt="积雪瓦顶特写" loading="lazy"></button>
-<button type="button" class="shot" aria-label="查看大图：沿海修路的茅草屋村落"><img src="../assets/shot1.jpg" alt="沿海修路的茅草屋村落" loading="lazy"></button>
-<button type="button" class="shot" aria-label="查看大图：被森林环绕的城镇全景"><img src="../assets/shot4.jpg" alt="被森林环绕的城镇全景" loading="lazy"></button>
-<button type="button" class="shot" aria-label="查看大图：沿路排开的第一批茅草屋"><img src="../assets/shot5.jpg" alt="沿路排开的第一批茅草屋" loading="lazy"></button>
+<button type="button" class="shot" aria-label="查看大图：瓦房与客舍林立的雪中城镇"><img src="../assets/s/shot9-960.webp" data-full="../assets/s/shot9-1600.webp" width="960" height="540" alt="瓦房与客舍林立的雪中城镇" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="查看大图：在河边开设交易所的贸易城镇"><img src="../assets/s/shot6-960.webp" data-full="../assets/s/shot6-1600.webp" width="960" height="540" alt="在河边开设交易所的贸易城镇" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="查看大图：积雪瓦顶特写"><img src="../assets/s/shot8-960.webp" data-full="../assets/s/shot8-1600.webp" width="960" height="540" alt="积雪瓦顶特写" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="查看大图：沿海修路的茅草屋村落"><img src="../assets/s/shot1-960.webp" data-full="../assets/s/shot1-1600.webp" width="960" height="540" alt="沿海修路的茅草屋村落" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="查看大图：被森林环绕的城镇全景"><img src="../assets/s/shot4-960.webp" data-full="../assets/s/shot4-1600.webp" width="960" height="540" alt="被森林环绕的城镇全景" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="查看大图：沿路排开的第一批茅草屋"><img src="../assets/s/shot5-960.webp" data-full="../assets/s/shot5-1600.webp" width="960" height="540" alt="沿路排开的第一批茅草屋" loading="lazy" decoding="async"></button>
 </div>
 </div>
 </section>
@@ -486,7 +489,9 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 function count(el){var to=+el.dataset.count,suf=el.dataset.suffix||'',t0=null;
   function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e)+suf;if(p<1)requestAnimationFrame(f);}
   requestAnimationFrame(f);}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;el.classList.add('in');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;var im=el.classList.contains('pic')&&el.querySelector('img');
+  if(im&&!im.complete){io.unobserve(el);im.addEventListener('load',function(){el.classList.add('in');},{once:true});im.addEventListener('error',function(){el.classList.add('in');},{once:true});return;}
+  el.classList.add('in');
   if(!reduce)el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el);});},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.rv,.pic,.stg').forEach(function(el){io.observe(el);});
 
@@ -520,7 +525,7 @@ if(cv&&!reduce){var ctx=cv.getContext('2d'),W,H,dpr=Math.min(window.devicePixelR
 /* 크게 보기 */
 var shots=[].slice.call(document.querySelectorAll('.shot')),lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cnt=document.getElementById('lb-count'),cur=0,last=null;
 function show(i){cur=(i+shots.length)%shots.length;var s=shots[cur].querySelector('img');img.style.opacity=0;
-  setTimeout(function(){img.src=s.src;img.alt=s.alt;img.style.opacity=1;},120);cnt.textContent=(cur+1)+' / '+shots.length;}
+  setTimeout(function(){img.src=s.dataset.full||s.src;img.alt=s.alt;img.style.opacity=1;},120);cnt.textContent=(cur+1)+' / '+shots.length;}
 function open(i){last=document.activeElement;show(i);lb.classList.add('on');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-close').focus();}
 function close(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';if(last)last.focus();}
 shots.forEach(function(b,i){b.addEventListener('click',function(){open(i);});});
