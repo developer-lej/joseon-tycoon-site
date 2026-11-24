@@ -5,27 +5,27 @@ import re, os
 SRC = open('src/index.html', encoding='utf-8').read()
 
 LANGS = {
- 'ko': dict(dir='', html='ko', label='한국어', logo_sub='',
+ 'ko': dict(dir='', html='ko', label='한국어 <small>Korean</small>', logo_sub='', brand='조선 타이쿤',
    title='조선 타이쿤 · Joseon Tycoon',
    desc='초가 한 채에서, 팔도 제일의 고을로. 조선 시대 마을 건설 · 경영 시뮬레이션 — Steam 출시 예정.',
    ogdesc='초가 한 채에서, 팔도 제일의 고을로. Steam 출시 예정.'),
- 'en': dict(dir='en', html='en', label='English', logo_sub='From a single thatched hut to the finest town in the land',
+ 'en': dict(dir='en', html='en', label='English', logo_sub='', brand='Joseon Tycoon',
    title='Joseon Tycoon · Joseon-era city builder',
    desc='From a single thatched hut to the finest town in the land. A village-building and management sim set in Joseon-era Korea — coming soon to Steam.',
    ogdesc='From a single thatched hut to the finest town in the land. Coming soon to Steam.'),
- 'zh': dict(dir='zh', html='zh-Hans', label='简体中文', logo_sub='从一间茅草屋，到八道第一的城镇',
-   title='Joseon Tycoon · 朝鲜时代城市建造',
+ 'zh': dict(dir='zh', html='zh-Hans', label='简体中文 <small>Chinese</small>', logo_sub='', brand='朝鲜大亨',
+   title='朝鲜大亨 Joseon Tycoon · 朝鲜时代城市建造',
    desc='从一间茅草屋，到八道第一的城镇。以朝鲜时代为背景的村落建设与经营模拟游戏，即将登陆 Steam。',
    ogdesc='从一间茅草屋，到八道第一的城镇。即将登陆 Steam。'),
- 'ja': dict(dir='ja', html='ja', label='日本語', logo_sub='一軒の藁葺き屋根から、八道一の町へ',
-   title='Joseon Tycoon · 朝鮮時代の街づくり',
+ 'ja': dict(dir='ja', html='ja', label='日本語 <small>Japanese</small>', logo_sub='', brand='朝鮮タイクーン',
+   title='朝鮮タイクーン Joseon Tycoon · 朝鮮時代の街づくり',
    desc='一軒の藁葺き屋根から、八道一の町へ。朝鮮時代を舞台にした村づくり・経営シミュレーション。Steamで近日発売。',
    ogdesc='一軒の藁葺き屋根から、八道一の町へ。Steamで近日発売。'),
 }
 
 # 한국어 → (영어, 중국어, 일본어)
 T = {
- '조선 타이쿤': ('Joseon Tycoon', 'Joseon Tycoon', 'Joseon Tycoon'),
+ '조선 타이쿤': ('Joseon Tycoon', '朝鲜大亨', '朝鮮タイクーン'),
  '트레일러': ('Trailer', '预告片', 'トレーラー'),
  '게임 소개': ('About', '游戏介绍', 'ゲーム紹介'),
  '스크린샷': ('Screenshots', '截图', 'スクリーンショット'),
@@ -74,11 +74,11 @@ T = {
  '유튜브 개발일지': ('Dev diary on YouTube', 'YouTube 开发日志', 'YouTube 開発日誌'),
  '디스코드': ('Discord', 'Discord', 'Discord'),
  '유튜브': ('YouTube', 'YouTube', 'YouTube'),
- '© 2026 Bamtee · 조선 타이쿤 (Joseon Tycoon)': ('© 2026 Bamtee · Joseon Tycoon (조선 타이쿤)',)*3,
- '조선 타이쿤 · 초가 한 채에서, 팔도 제일의 고을로': ('Joseon Tycoon', 'Joseon Tycoon', 'Joseon Tycoon'),
+ '© 2026 Bamtee · 조선 타이쿤 (Joseon Tycoon)': ('© 2026 Bamtee · Joseon Tycoon (조선 타이쿤)', '© 2026 Bamtee · 朝鲜大亨 (Joseon Tycoon)', '© 2026 Bamtee · 朝鮮タイクーン (Joseon Tycoon)'),
+ '조선 타이쿤 · 초가 한 채에서, 팔도 제일의 고을로': ('Joseon Tycoon — From a thatched cottage to Joseon’s finest town', '朝鲜大亨 — 从一间茅屋，到八道第一名邑', '朝鮮タイクーン — 一軒の草ぶき小屋から、八道一の町へ'),
  '아래로': ('Scroll down', '向下', '下へ'),
  '트레일러 재생': ('Play trailer', '播放预告片', 'トレーラーを再生'),
- '조선 타이쿤의 건물과 일꾼들': ('Buildings and people of Joseon Tycoon', 'Joseon Tycoon 的建筑与人们', 'Joseon Tycoon の建物と人々'),
+ '조선 타이쿤의 건물과 일꾼들': ('Buildings and people of Joseon Tycoon', '朝鲜大亨的建筑与人们', '朝鮮タイクーンの建物と人々'),
  '아직 비밀인 상징 건축': ('A landmark still under wraps', '尚未揭晓的地标建筑', 'まだ秘密の名所建築'),
  '일터마다 일꾼이 나무를 켜고 짐을 쌓는 모습': ('Workers sawing timber and stacking goods at every workplace', '各处作坊里工人锯木、堆货的景象', '仕事場ごとに職人が木を挽き、荷を積む様子'),
  '제련소 창과 생산 줄이 이어진 고을': ('A town linked by production chains, with the smelter window open', '打开冶炼所窗口、生产链相连的城镇', '製錬所の画面と生産の流れがつながった町'),
@@ -117,7 +117,7 @@ def build(code):
     # 말 바꾸기 (본문, 스크립트 앞까지만)
     cut = s.index('<script>', s.index('<body'))
     head, body, tail = s[:s.index('<body')], s[s.index('<body'):cut], s[cut:]
-    body = re.sub(r'(<summary aria-label="Language">.*?<span>)한국어(</span>)', lambda m: m.group(1) + L['label'] + m.group(2), body, count=1, flags=re.S)
+    body = body.replace('{{LANG_LABEL}}', L['label'])
     if code != 'ko':
         i = IDX[code]
         for k, vs in PREFIX.items():
@@ -134,18 +134,22 @@ def build(code):
         body = body.replace('{{L_' + c + '}}', href or './')
     body = body.replace(f'data-l="{code}"', f'data-l="{code}" aria-current="page"')
     s = head + body + tail
-    if code == 'ko':
-        redir = ("<script>(function(){try{if(localStorage.getItem('jt-lang')||/bot|crawl|spider|slurp/i.test(navigator.userAgent))return;"
-                 "var l=(navigator.language||'').toLowerCase();if(!l||l.indexOf('ko')===0)return;"
-                 "var t=l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':'en';location.replace(t+'/'+location.hash);}catch(e){}})();</script>\n")
-        s = s.replace('</head>', redir + '</head>', 1)
+    if code != 'ko':
+        s = s.replace('assets/logo.png', f'assets/logo-{code}.png')
+    here = code
+    root = up or './'
+    redir = ("<script>(function(){try{if(localStorage.getItem('jt-lang')||/bot|crawl|spider|slurp|facebookexternalhit|preview/i.test(navigator.userAgent))return;"
+             "var ls=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']);var l=(ls[0]||'').toLowerCase();if(!l)return;"
+             "var t=l.indexOf('ko')===0?'ko':l.indexOf('zh')===0?'zh':l.indexOf('ja')===0?'ja':'en';if(t==='" + here + "')return;"
+             "location.replace('" + root + "'+(t==='ko'?'':t+'/')+location.hash);}catch(e){}})();</script>\n")
+    s = s.replace('</head>', redir + '</head>', 1)
     if up:
         s = re.sub(r'(?<![\w./])assets/', up + 'assets/', s)
     # 남은 한글 검사 (한국어 본문 외)
     if code != 'ko':
         b2 = s[s.index('<body'):s.index('<script>', s.index('<body'))]
         left = [t for t in re.findall(r'>([^<>]*[가-힣][^<>]*)<|="([^"]*[가-힣][^"]*)"', b2)]
-        left = [a or b for a, b in left if (a or b).strip() not in ('조선', '타이쿤', '한국어', '[문의 이메일]', '한국어 · English · 中文 · 日本語') and '(조선 타이쿤)' not in (a or b)]
+        left = [a or b for a, b in left if (a or b).strip() not in ('조선', '타이쿤', '한국어', '[문의 이메일]', '한국어 · English · 中文 · 日本語', '한국어 ') and '(조선 타이쿤)' not in (a or b)]
         if left: print(code, '한글 남음:', left)
     out = (L['dir'] + '/' if L['dir'] else '') + 'index.html'
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)
