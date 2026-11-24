@@ -31,6 +31,7 @@ T = {
  '스크린샷': ('Screenshots', '截图', 'スクリーンショット'),
  'Steam 찜하기': ('Wishlist', '加入愿望单', 'ウィッシュリスト'),
  'Steam 출시 예정': ('Coming soon to Steam', '即将登陆 Steam', 'Steamで近日発売'),
+ 'Steam 출시 예정 · 한국어 · English · 中文 · 日本語': ('Coming soon to Steam · 한국어 · English · 中文 · 日本語', '即将登陆 Steam · 한국어 · English · 中文 · 日本語', 'Steamで近日発売 · 한국어 · English · 中文 · 日本語'),
  '조선시대': ('JoseonEra', '朝鲜时代', '朝鮮時代'),
  '시티빌더': ('CityBuilder', '城市建造', '街づくり'),
  '픽셀아트': ('PixelArt', '像素风', 'ドット絵'),
@@ -153,7 +154,7 @@ def build(code):
     if code != 'ko':
         b2 = s[s.index('<body'):s.index('<script>', s.index('<body'))]
         left = [t for t in re.findall(r'>([^<>]*[가-힣][^<>]*)<|="([^"]*[가-힣][^"]*)"', b2)]
-        left = [a or b for a, b in left if (a or b).strip() not in ('조선', '타이쿤', '한국어', '[문의 이메일]', '한국어 · English · 中文 · 日本語', '한국어 ') and '(조선 타이쿤)' not in (a or b)]
+        left = [a or b for a, b in left if (a or b).strip() not in ('조선', '타이쿤', '한국어', '[문의 이메일]', '한국어 · English · 中文 · 日本語', '한국어 ', 'Coming soon to Steam · 한국어 · English · 中文 · 日本語', '即将登陆 Steam · 한국어 · English · 中文 · 日本語', 'Steamで近日発売 · 한국어 · English · 中文 · 日本語') and '(조선 타이쿤)' not in (a or b)]
         if left: print(code, '한글 남음:', left)
     out = (L['dir'] + '/' if L['dir'] else '') + 'index.html'
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)

@@ -76,7 +76,7 @@ nav .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:8px}
 .mist.m2{top:60%;opacity:.38;animation:drift 110s linear infinite reverse}
 @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-24%)}}
 #petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-.hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:80px}
+.hero .wrap{position:relative;z-index:3;width:100%;padding-top:80px;padding-bottom:13vh}
 .logo{width:min(600px,100%);height:auto;
   clip-path:inset(0 100% 0 0);animation:brush 1.6s .35s var(--ease) forwards;filter:drop-shadow(0 2px 0 rgba(255,250,240,.6))}
 @keyframes brush{to{clip-path:inset(0 0 0 0)}}
@@ -96,18 +96,13 @@ nav .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:8px}
 :lang(zh) body{font-family:'IBM Plex Sans KR','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}
 :lang(ja) h1,:lang(ja) h2,:lang(ja) h3,:lang(ja) .stats b,:lang(ja) .logo-sub{font-family:'Noto Serif JP',serif}
 :lang(zh) h1,:lang(zh) h2,:lang(zh) h3,:lang(zh) .stats b,:lang(zh) .logo-sub{font-family:'Noto Serif SC',serif}
-.tagbox{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:26px}
-.kw,.tags{text-shadow:0 0 6px rgba(246,239,226,.95),0 0 16px rgba(246,239,226,.85)}.tags b{text-shadow:none}
-.kw{display:flex;flex-wrap:wrap;align-items:center;gap:8px 8px;margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(16px,1.3vw,18px);color:#1E1A15;letter-spacing:.01em}
-.kw span{position:relative;padding:5px 14px 5px 12px;border-radius:20px;background:rgba(255,250,240,.78);border:1px solid rgba(42,35,27,.14);box-shadow:0 2px 8px rgba(42,35,27,.08);text-shadow:none;transition:transform .25s var(--ease),border-color .25s}
-.kw span::after{content:none}
-.kw span::before{content:"#";color:var(--seal);margin-right:2px;font-weight:700}
-.kw span:hover{transform:translateY(-2px);border-color:rgba(168,56,42,.5)}
-:lang(ja) .kw{font-family:'Noto Serif JP',serif}:lang(zh) .kw{font-family:'Noto Serif SC',serif}
-.tags{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:0;font-size:15px;font-weight:600;color:#3A3128;letter-spacing:.02em}
-.tags b{font-weight:700;font-size:14px;color:var(--cream);background:var(--seal);padding:5px 11px;border-radius:3px;letter-spacing:.04em}
-.tags span{position:relative}
-.tags span+span::before{content:"";position:absolute;left:-15px;top:50%;width:1px;height:14px;transform:translateY(-50%);background:rgba(42,35,27,.35)}
+
+
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips .chip{margin-top:0!important;display:inline-flex;align-items:center;line-height:1.4}
+.chip.hk{display:inline-flex;gap:10px;font-family:inherit;font-weight:500;font-size:14px;color:var(--paper);text-shadow:none;margin:0}
+.chip.hk span::before{content:"#";color:#E8A08E;margin-right:1px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .chip{display:inline-block;margin-top:18px;background:rgba(42,35,27,.84);color:var(--paper);padding:8px 14px;border-radius:4px;font-size:14px;letter-spacing:.02em}
 .rise{opacity:0;transform:translateY(18px);animation:rise .9s var(--ease) forwards}
@@ -313,11 +308,10 @@ html,body{overflow-x:clip}
   .hero .wrap{padding-top:110px}
   .hero-img{background-position:62% 42%}
   .lang summary span{display:none}.lang summary{padding:0 8px}
-  .tagbox{margin-top:18px;gap:12px}.kw{gap:6px;font-size:15px}.kw span{padding:4px 11px 4px 10px}
+  .chip.hk{flex-wrap:wrap;gap:4px 10px}
   .brand span,nav .btn{white-space:nowrap}
   nav a.i[href*="youtube"]{display:none}
-  .tags{font-size:14px;gap:8px 16px;margin-top:0}.tags span+span::before{display:none}.tags b{flex-basis:100%;max-width:max-content}
-  .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{justify-content:center}
   .trailer{padding:80px 0 72px}.trailer h2{margin-bottom:28px}
   .player{border-radius:4px;margin:0 -8px}
@@ -383,11 +377,11 @@ html,body{overflow-x:clip}
 <div class="wrap">
 <span class="logo-wrap"><img class="logo" src="../assets/logo-ja.png" alt="朝鮮タイクーン — 一軒の草ぶき小屋から、八道一の町へ"></span>
 <p class="logo-sub"></p>
-<div class="tagbox rise d1"><p class="kw"><span>朝鮮時代</span><span>街づくり</span><span>ドット絵</span><span>まったり経営</span></p><p class="tags"><b>Steamで近日発売</b><span>한국어 · English · 中文 · 日本語</span></p></div>
 <div class="hero-cta rise d1">
 <a class="btn btn-seal" href="https://store.steampowered.com/app/5386760"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg>Steamでウィッシュリスト</a>
 <a class="btn btn-ghost" href="#trailer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>トレーラーを見る</a>
 </div>
+<div class="chips rise d2"><span class="chip hk"><span>朝鮮時代</span><span>街づくり</span><span>ドット絵</span><span>まったり経営</span></span><span class="chip">Steamで近日発売 · 한국어 · English · 中文 · 日本語</span></div>
 </div>
 <a class="scroll-cue" href="#trailer" aria-label="下へ">スクロール<i></i></a>
 </section>
