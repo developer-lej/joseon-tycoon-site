@@ -81,7 +81,7 @@ T = {
  '유튜브 개발일지': ('Dev diary on YouTube', 'YouTube 开发日志', 'YouTube 開発日誌'),
  '디스코드': ('Discord', 'Discord', 'Discord'),
  '유튜브': ('YouTube', 'YouTube', 'YouTube'),
- '© 2026 Bamtee · 조선 타이쿤 (Joseon Tycoon)': ('© 2026 Bamtee · Joseon Tycoon (조선 타이쿤)', '© 2026 Bamtee · 朝鲜大亨 (Joseon Tycoon)', '© 2026 Bamtee · 朝鮮タイクーン (Joseon Tycoon)'),
+ '© 2026 Bamtee Studio · 조선 타이쿤 (Joseon Tycoon)': ('© 2026 Bamtee Studio · Joseon Tycoon (조선 타이쿤)', '© 2026 Bamtee Studio · 朝鲜大亨 (Joseon Tycoon)', '© 2026 Bamtee Studio · 朝鮮タイクーン (Joseon Tycoon)'),
  '조선 타이쿤 · 초가 한 채에서, 팔도 제일의 고을로': ('Joseon Tycoon — From a thatched cottage to Joseon’s finest town', '朝鲜大亨 — 从一间茅屋，到八道第一名邑', '朝鮮タイクーン — 一軒の草ぶき小屋から、八道一の町へ'),
  '아래로': ('Scroll down', '向下', '下へ'),
  '트레일러 재생': ('Play trailer', '播放预告片', 'トレーラーを再生'),
