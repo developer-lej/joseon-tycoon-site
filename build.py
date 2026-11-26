@@ -129,6 +129,11 @@ T = {
  '바닷가에 길을 낸 초가 마을': ('A thatched village with roads along the coast', '沿海修路的茅草屋村落', '海辺に道を通した藁葺きの村'),
  '숲에 둘러싸인 고을 전경': ('A town surrounded by forest', '被森林环绕的城镇全景', '森に囲まれた町の全景'),
  '길을 따라 늘어선 첫 초가들': ('The first thatched huts lining the road', '沿路排开的第一批茅草屋', '道沿いに並ぶ最初の藁葺き屋根'),
+ '등불이 켜진 밤의 고을과 석탑': ('A lantern-lit town and stone pagoda at night', '灯火通明的夜晚城镇与石塔', '灯りがともる夜の町と石塔'),
+ '눈과 벚꽃이 함께 내린 고을': ('A town where snow and cherry blossoms fall together', '雪花与樱花一同飘落的城镇', '雪と桜が一緒に舞う町'),
+ '나루에 행상선이 닿은 강가 고을': ('A riverside town where a trading boat reaches the ferry dock', '商船靠岸的河畔渡口城镇', '行商船が渡し場に着いた川辺の町'),
+ '눈 속의 근정전과 벚꽃 연못': ('The throne hall and cherry-blossom pond in the snow', '雪中的勤政殿与樱花池', '雪の中の勤政殿と桜の池'),
+ 'YouTube에서 보기': ('Watch on YouTube', '在 YouTube 观看', 'YouTubeで見る'),
  '스크린샷 크게 보기': ('Screenshot viewer', '截图大图', 'スクリーンショット拡大'),
  '닫기': ('Close', '关闭', '閉じる'),
  '이전 사진': ('Previous', '上一张', '前の写真'),
@@ -141,10 +146,12 @@ FONTS = {
  'ja': '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&amp;family=Noto+Serif+JP:wght@700&amp;display=swap" rel="stylesheet">',
 }
 SITE = 'https://joseontycoon.com/'
+# 유튜브 트레일러 (말마다 다른 판이 생기면 여기만 바꾸면 됨)
+YT = {'ko': 'fZUs3HcpLVk', 'en': 'fZUs3HcpLVk', 'zh': 'fZUs3HcpLVk', 'ja': 'fZUs3HcpLVk'}
 
 PRESS_BODY = open('src/press-body.html', encoding='utf-8').read()
 PRESS_TITLE = {'ko': '프레스킷 · 조선 타이쿤', 'en': 'Press Kit · Joseon Tycoon', 'zh': '媒体资料 · 朝鲜大亨', 'ja': 'プレスキット · 朝鮮タイクーン'}
-SHOT_ALTS = ['길을 따라 늘어선 첫 초가들', '일터마다 일꾼이 나무를 켜고 짐을 쌓는 모습', '제련소 창과 생산 줄이 이어진 고을', '눈 덮인 혹한기의 강가 고을', '강가에 교역소를 연 무역 고을', '눈 쌓인 기와지붕 가까이', '바닷가에 길을 낸 초가 마을', '숲에 둘러싸인 고을 전경', '기와집과 객사가 들어선 눈 내린 고을']
+SHOT_ALTS = ['등불이 켜진 밤의 고을과 석탑', '눈과 벚꽃이 함께 내린 고을', '나루에 행상선이 닿은 강가 고을', '눈 덮인 혹한기의 강가 고을', '눈 속의 근정전과 벚꽃 연못', '제련소 창과 생산 줄이 이어진 고을', '길을 따라 늘어선 첫 초가들', '강가에 교역소를 연 무역 고을']
 
 def press_page():
     s = SRC
@@ -154,11 +161,15 @@ def press_page():
         hdr = hdr.replace('href="' + a + '"', 'href="{{HOME}}' + a + '"')
     hdr = hdr.replace('href="#top"', 'href="{{HOME}}"')
     foot = s[s.index('<footer class="wrap">'):s.index('</footer>') + len('</footer>')]
-    shots = ''.join(f'<a class="p-item" href="assets/press/screenshots/screenshot-{i}.jpg" download><span class="p-pic"><img src="assets/s/shot{i}-960.webp" alt="{SHOT_ALTS[i-1]}" loading="lazy"></span><span class="p-cap">{i} · JPG 1920×1080</span></a>\n' for i in range(1, 10))
+    shots = ''.join(f'<a class="p-item" href="assets/press/screenshots/screenshot-{i}.jpg" download><span class="p-pic"><img src="assets/s/shot{i}-960.webp" alt="{SHOT_ALTS[i-1]}" loading="lazy"></span><span class="p-cap">{i} · JPG 1920×1080</span></a>\n' for i in range(1, 9))
     body = PRESS_BODY.replace('{{SHOTS}}', shots)
     js = ("<script>(function(){var hdr=document.getElementById('hdr');function f(){hdr.classList.toggle('solid',window.scrollY>40);}addEventListener('scroll',f,{passive:true});f();"
           "var lg=document.querySelector('.lang');if(lg){lg.querySelectorAll('.lang-m a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('jt-lang',a.dataset.l);}catch(e){}});});"
-          "document.addEventListener('click',function(e){if(lg.open&&!lg.contains(e.target))lg.open=false;});}})();</script>")
+          "document.addEventListener('click',function(e){if(lg.open&&!lg.contains(e.target))lg.open=false;});}"
+          "var yt=document.getElementById('yt'),play=document.getElementById('play');if(yt&&play)play.addEventListener('click',function(){var f=document.createElement('iframe');"
+          "f.src='https://www.youtube-nocookie.com/embed/'+yt.dataset.yt+'?autoplay=1&rel=0&playsinline=1';f.title=play.getAttribute('aria-label');"
+          "f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;yt.appendChild(f);play.classList.add('gone');});"
+          "})();</script>")
     return head + '<body>\n' + hdr + '\n' + body + '\n' + foot + '\n' + js + '\n</body>\n</html>\n'
 
 def build(code, kind='home'):
@@ -177,7 +188,7 @@ def build(code, kind='home'):
     # 말 바꾸기 (본문, 스크립트 앞까지만)
     cut = s.index('<script>', s.index('<body')) if kind == 'home' else s.index('<script>(function(){var hdr', s.index('<body'))
     head, body, tail = s[:s.index('<body')], s[s.index('<body'):cut], s[cut:]
-    body = body.replace('{{LANG_LABEL}}', L['label'])
+    body = body.replace('{{LANG_LABEL}}', L['label']).replace('{{YT}}', YT[code])
     if code != 'ko':
         i = IDX[code]
         for k, vs in PREFIX.items():

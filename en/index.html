@@ -7,7 +7,7 @@
 <meta name="description" content="From a single thatched hut to the finest town in the land. A village-building and management sim set in Joseon-era Korea — coming soon to Steam.">
 <meta property="og:title" content="Joseon Tycoon · Joseon-era city builder">
 <meta property="og:description" content="From a single thatched hut to the finest town in the land. Coming soon to Steam.">
-<meta property="og:image" content="../assets/shot9.jpg">
+<meta property="og:image" content="../assets/og.jpg">
 <meta name="theme-color" content="#1E1A15">
 <link rel="icon" href="../assets/icon.png">
 <link rel="preload" as="image" href="../assets/hero.webp" media="(min-width:761px)">
@@ -137,8 +137,8 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 .trailer{background:var(--night);color:var(--paper);padding:120px 0}
 .trailer h2{font-size:clamp(30px,4vw,44px);margin-bottom:40px}
 .player{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);background:#000}
-.player video{display:block;width:100%;aspect-ratio:16/9}
-.play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:#000 url(../assets/s/shot1-1600.webp) center/cover;display:flex;align-items:center;justify-content:center}
+.player .yt{display:block;width:100%;aspect-ratio:16/9}.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:#000 url(../assets/s/shot1-1600.webp) center/cover;z-index:2;display:flex;align-items:center;justify-content:center}
 .play::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.05),rgba(0,0,0,.45))}
 .play span{position:relative;width:104px;height:104px;border-radius:52px;background:var(--seal);color:var(--cream);display:flex;align-items:center;justify-content:center;
   box-shadow:0 0 0 0 rgba(168,56,42,.6);animation:ring 2.4s ease-out infinite;transition:transform .35s var(--ease)}
@@ -183,7 +183,7 @@ h2{margin:0;font-family:'Gowun Batang',serif;font-weight:700;line-height:1.3}
 /* ── 스크린샷 ── */
 .shots{padding:140px 0 130px}
 .shots h2{font-size:clamp(28px,3vw,36px);margin-bottom:36px}
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 @media (max-width:720px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .shot{padding:0;border:0;background:none;cursor:zoom-in;display:block;width:100%;border-radius:6px;overflow:hidden;position:relative}
 .shot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
@@ -431,8 +431,7 @@ html,body{overflow-x:clip}
 <p class="eyebrow rv">Trailer</p>
 <h2 class="rv"><span class="stroke">At dusk, from every chimney</span><br>the smoke begins to rise</h2>
 <div class="player rv">
-<video id="vid" preload="metadata" playsinline muted loop src="../assets/trailer.mp4"></video>
-<button class="snd" id="snd" type="button"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Sound on, from the start</button>
+<div class="yt" id="yt" data-yt="fZUs3HcpLVk"></div>
 <button class="play" id="play" type="button" aria-label="Play trailer"><span><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button>
 </div>
 </div>
@@ -461,15 +460,15 @@ html,body{overflow-x:clip}
 
 <section class="wrap features">
 <div class="feat">
-<div class="pic"><img class="ink" src="../assets/s/shot3-960.webp" srcset="../assets/s/shot3-960.webp 960w, ../assets/s/shot3-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="Workers sawing timber and stacking goods at every workplace" decoding="async"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot3-960.webp" srcset="../assets/s/shot3-960.webp 960w, ../assets/s/shot3-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="A riverside town where a trading boat reaches the ferry dock" decoding="async"></div>
 <div class="txt stg"><span class="num">01</span><h3>See every craft at work</h3><p>Every chop, haul and craft plays out right on screen.</p></div>
 </div>
 <div class="feat rev">
-<div class="pic"><img class="ink" src="../assets/s/shot2-960.webp" srcset="../assets/s/shot2-960.webp 960w, ../assets/s/shot2-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="A town linked by production chains, with the smelter window open" decoding="async"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot6-960.webp" srcset="../assets/s/shot6-960.webp 960w, ../assets/s/shot6-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="A town linked by production chains, with the smelter window open" decoding="async"></div>
 <div class="txt stg"><span class="num">02</span><h3>Goods born of artisans' hands</h3><p>Link production chains and grow homes for commoners and yangban through five tiers.</p></div>
 </div>
 <div class="feat">
-<div class="pic"><img class="ink" src="../assets/s/shot7-960.webp" srcset="../assets/s/shot7-960.webp 960w, ../assets/s/shot7-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="A riverside town under snow in the deep freeze" decoding="async"></div>
+<div class="pic"><img class="ink" src="../assets/s/shot4-960.webp" srcset="../assets/s/shot4-960.webp 960w, ../assets/s/shot4-1600.webp 1600w" sizes="(max-width:760px) 100vw, 700px" width="1600" height="900" alt="A riverside town under snow in the deep freeze" decoding="async"></div>
 <div class="txt stg"><span class="num">03</span><h3>Fire, thieves, pirates — and the deep freeze</h3><p>Fulfil royal decrees, weather disasters and keep your town standing.</p></div>
 </div>
 </section>
@@ -479,12 +478,14 @@ html,body{overflow-x:clip}
 <p class="eyebrow rv">Screenshots</p>
 <h2 class="rv"><span class="stroke">Tour the town</span></h2>
 <div class="gallery stg">
-<button type="button" class="shot" aria-label="View larger: A snowy town of tiled houses and a guesthouse"><img src="../assets/s/shot9-960.webp" data-full="../assets/s/shot9-1600.webp" width="960" height="540" alt="A snowy town of tiled houses and a guesthouse" loading="lazy" decoding="async"></button>
-<button type="button" class="shot" aria-label="View larger: A trading town with a riverside trading post"><img src="../assets/s/shot6-960.webp" data-full="../assets/s/shot6-1600.webp" width="960" height="540" alt="A trading town with a riverside trading post" loading="lazy" decoding="async"></button>
-<button type="button" class="shot" aria-label="View larger: Snow-covered tiled roofs, up close"><img src="../assets/s/shot8-960.webp" data-full="../assets/s/shot8-1600.webp" width="960" height="540" alt="Snow-covered tiled roofs, up close" loading="lazy" decoding="async"></button>
-<button type="button" class="shot" aria-label="View larger: A thatched village with roads along the coast"><img src="../assets/s/shot1-960.webp" data-full="../assets/s/shot1-1600.webp" width="960" height="540" alt="A thatched village with roads along the coast" loading="lazy" decoding="async"></button>
-<button type="button" class="shot" aria-label="View larger: A town surrounded by forest"><img src="../assets/s/shot4-960.webp" data-full="../assets/s/shot4-1600.webp" width="960" height="540" alt="A town surrounded by forest" loading="lazy" decoding="async"></button>
-<button type="button" class="shot" aria-label="View larger: The first thatched huts lining the road"><img src="../assets/s/shot5-960.webp" data-full="../assets/s/shot5-1600.webp" width="960" height="540" alt="The first thatched huts lining the road" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A lantern-lit town and stone pagoda at night"><img src="../assets/s/shot1-960.webp" data-full="../assets/s/shot1-1600.webp" width="960" height="540" alt="A lantern-lit town and stone pagoda at night" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A town where snow and cherry blossoms fall together"><img src="../assets/s/shot2-960.webp" data-full="../assets/s/shot2-1600.webp" width="960" height="540" alt="A town where snow and cherry blossoms fall together" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A riverside town where a trading boat reaches the ferry dock"><img src="../assets/s/shot3-960.webp" data-full="../assets/s/shot3-1600.webp" width="960" height="540" alt="A riverside town where a trading boat reaches the ferry dock" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A riverside town under snow in the deep freeze"><img src="../assets/s/shot4-960.webp" data-full="../assets/s/shot4-1600.webp" width="960" height="540" alt="A riverside town under snow in the deep freeze" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: The throne hall and cherry-blossom pond in the snow"><img src="../assets/s/shot5-960.webp" data-full="../assets/s/shot5-1600.webp" width="960" height="540" alt="The throne hall and cherry-blossom pond in the snow" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A town linked by production chains, with the smelter window open"><img src="../assets/s/shot6-960.webp" data-full="../assets/s/shot6-1600.webp" width="960" height="540" alt="A town linked by production chains, with the smelter window open" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: The first thatched huts lining the road"><img src="../assets/s/shot7-960.webp" data-full="../assets/s/shot7-1600.webp" width="960" height="540" alt="The first thatched huts lining the road" loading="lazy" decoding="async"></button>
+<button type="button" class="shot" aria-label="View larger: A trading town with a riverside trading post"><img src="../assets/s/shot8-960.webp" data-full="../assets/s/shot8-1600.webp" width="960" height="540" alt="A trading town with a riverside trading post" loading="lazy" decoding="async"></button>
 </div>
 </div>
 </section>
@@ -542,14 +543,11 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isInte
 document.querySelectorAll('.rv,.pic,.stg').forEach(function(el){io.observe(el);});
 
 /* 트레일러 */
-var vid=document.getElementById('vid'),play=document.getElementById('play'),snd=document.getElementById('snd'),user=false;
-vid.muted=true;
-function startMuted(){vid.muted=true;var pr=vid.play();if(pr&&pr.then)pr.then(function(){play.classList.add('gone');snd.classList.add('on');}).catch(function(){});}
-play.addEventListener('click',function(){user=true;vid.muted=false;vid.controls=true;vid.play();play.classList.add('gone');snd.classList.remove('on');});
-snd.addEventListener('click',function(){user=true;vid.muted=false;vid.controls=true;vid.currentTime=0;vid.play();snd.classList.remove('on');});
-new IntersectionObserver(function(e){var v=e[0].isIntersecting;
-  if(v){if(!user&&!reduce)startMuted();else if(user&&vid.paused&&vid.dataset.auto)vid.play();}
-  else if(!vid.paused){vid.dataset.auto=user?'1':'';vid.pause();}},{threshold:.55}).observe(vid);
+var yt=document.getElementById('yt'),play=document.getElementById('play');
+play.addEventListener('click',function(){var f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+yt.dataset.yt+'?autoplay=1&rel=0&playsinline=1';
+  f.title=play.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
+  yt.appendChild(f);play.classList.add('gone');});
 
 /* 꽃잎 */
 var cv=document.getElementById('petals');
